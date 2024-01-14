@@ -1,0 +1,134 @@
+ADM-04;Ativo;Windows 10 Professional;R92H8-N7D7X-6WCRF-849KK-8QKTT;	203 GB + 19,  5 GB
+
+ADM-15;Ativo;Windows 7 Professional;		;240 GB + 500 GB
+
+ALM-01;Ativo;Windows 10 Professional;		;500 GB
+
+AST-04;Ativo;Windows XP Professional;		;250 GB
+
+AST-06;Ativo;Windows 7 Professional;		;97,  5 GB + 200 GB
+
+AST-22;Ativo;Windows 10 Professional;		;269 GB + 195 GB
+
+Chrome book;Ativo;ChromeOS;			;64 GB
+
+COM-01;Ativo;Windows 7 Professional;		;265 GB + 199 GB
+
+COM-05;Ativo;Windows 7 Professional;		;250 GB
+
+COM-10;Ativo;Windows 10 Professional;		;1000 GB
+
+CON-01;Ativo;Windows 7 Professional;237XB-GDJ7B-MV8MH-98QJM-24367;	340 GB + 100 GB
+
+CON-02;Ativo;Windows 7 Professional;		;198 GB + 99,  9 GB
+
+CON-06;Ativo;Windows 7 Professional;		;315 GB + 149 GB
+
+CON-08;Ativo;Windows 7 Professional;		;500 GB
+
+COP-05;Ativo;Windows 7 Professional;		;199 GB + 498 GB
+
+COP-10;Ativo;Windows 10 Professional;		;263 GB + 202 GB
+
+COP-11;Ativo;Windows 7 Professional;		;199 GB + 265 GB
+
+COQ-05;Ativo;Windows 10 Professional;		;204 GB + 726 GB
+
+DESKTOP-7PC0MLB;Ativo;Windows 11 Home;BT79Q-G7N6G-PGBYW-4YWX6-6F4BT;	389 GB + 56,  3 GB
+
+DESKTOP-LFMDBJ8;Ativo;Windows 10 Home;BNHV3-2HW83-KT9XY-9P38B-K764C;	203 GB + 19,  5 GB
+
+ENG-01;Ativo;Windows 7 Professional;		;480 GB + 1 TB
+
+ENG-03;Ativo;Windows 7 Professional;		;500 GB
+
+ENG-09;Ativo;Windows 7 Professional;		;500 GB
+
+ENG-15;Ativo;Windows 7 Professional;		;500 GB
+
+ENG-16;Ativo;Windows 8.1 Professional;JPFF4-7N3GJ-VHFMH-D4WDD-49BCQ;	465 GB
+
+ENG-25;Ativo;Windows XP Professional;		;160 GB
+
+ENG-30;Ativo;Windows 7 Professional;		;120 GB + 500 GB
+
+ENG-32;Ativo;Windows 7 Professional;		;240 GB + 500 GB
+
+ENG-41;Ativo;Windows 7 Professional;		;240 GB
+
+ENG-43;Ativo;Windows 7 Professional;		;500 GB
+
+ENG-48;Ativo;Windows 7 Professional;		;240 GB
+
+EXP-05;Ativo;Windows 7 Professional;		;500 GB
+
+FIL-01;Ativo;Windows 8.1 Professional;		;269 GB + 195 GB
+
+FIN-04;Ativo;Windows 7 Professional;		;99,  9 GB + 365 GB
+
+FIN-05;Ativo;Windows 10 Professional;VK7JG-NPHTM-C97JM-9MPGT-3V66T;	222 GB
+
+FIN-06;Ativo;Windows 7 Professional;237XB-GDJ7B-MV8MH-98QJM-24367;	440 GB
+
+FIN-20;Ativo;Windows 10 Professional;VK7JG-NPHTM-C97JM-9MPGT-3V66T;	299 GB + 631 GB
+
+FIN-NF;Ativo;Windows 7 Professional;		;31,  8 GB
+
+HIG-01;Ativo;Windows 7 Professional;		;1000 GB 
+
+INF-10;Ativo;Windows 10 Professional;PC8NP-MVMQ2-DBTYY-QPCT3-B98XG;	194 GB + 465 GB
+
+INF-100;Ativo;Windows 7 Professional;		;500 GB + 1 TB
+
+INF-101;Ativo;Windows 11 Professional;M7DQJ-XNC7D-YV7QX-DTMHQ-M7V22;	464 GB + 3,  54 TB
+
+INF-102;Ativo;Windows 11 Professional;RJTFJ-BQHC3-QGTWG-QH64K-7K88M / TGYRN-FV3JH-H4D95-DX7QW-4VV22;	3,  63 TB + 464 GB
+
+LAPTOP-39GRLC7H;Ativo;Windows 11 Home;FFKQN-7DWGQ-KK3F4-MY3QG-4M472;	237 GB
+
+MAN-02;Ativo;Windows 7 Professional;C63P6-PHH4Q-6WGRB-6XHJK-M3J8J;	200 GB + 265 GB
+
+MAN-03;Ativo;Windows 8.1 Professional;93MGN-968X7-VG2BP-8XV24-2KBCQ;	199 GB
+
+PB-501;Ativo;Windows 7 Professional;    ;240 GB
+
+PCP-05;Ativo;Windows 7 Professional;		;99,  9 GB + 365 GB
+
+PCP-11;Ativo;Windows 10 Professional;		;199 GB + 265 GB
+
+PCP-20;Ativo;Windows 10 Professional;		;288 GB + 199 GB + 37,  5 GB
+
+PCP-30;Ativo;Windows 10 Professional;		;201 GB + 263 GB
+
+PCP-31;Ativo;Windows 7 Professional;		;199 GB + 265 GB
+
+POR-10;Ativo;Windows 7 Professional;		;500 GB
+
+POR-11;Ativo;Windows 8.1 Professional;		;500 GB
+
+REC-02;Ativo;Windows 7 Professional;		;1 TB
+
+REH-01;Ativo;Windows 7 Professional;		;250 GB
+
+REH-04;ativo;Windows 8.1 Professional;		;120 GB
+
+REM-12;Ativo;Windows 10 Professional;		;154 GB + 68,  3 GB
+
+REM-15;Ativo;Windows 7 Professional;		;99,  9 GB + 132 GB
+
+REM-30;Ativo;Windows 7 Professional;		;200 GB + 265 GB
+
+SUP-02;Ativo;Windows 8.1 Professional;NW93H-83J62-V42PJ-HTTDX-66MCQ;	453 GB + 11,  7 GB
+
+USUARIO-PC;Ativo;Windows 7 Starter;	RDJXR-3M32B-FJT32-QMPGB-GCFF6;	221 GB
+
+VEN-01;Ativo;Windows 10 profissional;FQ4VR-N97K7-2CT6G-6B4YB-TXXTP;	199 GB + 23,  2 GB
+
+VEN-02;Ativo;Windows 10 profissional;2GGMK-N3VW4-V9DD8-YJQPW-K2FC2;	222 GB + 364 GB + 100 GB + 548 MB
+
+VEN-03;Ativo;Windows 10 Professional;		;212 GB + 10,  5 GB
+
+VEN-20;Ativo;Windows 10 Professional;CN852-6KTD7-CPR43-W8DC8-RX8XC;	259 GB + 205 GB
+
+VEN-25;Ativo;Windows 10 Professional;		;500 GB
+
