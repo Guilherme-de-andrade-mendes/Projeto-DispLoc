@@ -3,12 +3,23 @@ import openpyxl
 from xhtml2pdf import pisa
 from time import sleep
 
-def existeArquivo(baseDeDados):
-    return os.path.isfile(baseDeDados)
+def exitePlanilha(nomeArquivo):
+    if not os.path.isfile(nomeArquivo):
+        workbook = openpyxl.Workbook()
+        planilha = workbook.active
+        planilha.title = 'Planilha1'
+        planilha.append(['Nome', 'Status', 'Sistema Operacional', 'Chave de Ativação', 'Partições'])
+        workbook.save(nomeArquivo)
+        print(f'Arquivo {nomeArquivo} criado com sucesso.')
+        return planilha
+    else:
+        workbook = openpyxl.load_workbook(nomeArquivo)
+        planilha = ['Planilha1']
+        return planilha
 
 def menu():
-    print("="*32 + "Gerenciador de dispositivos locais - Prominas" + "="*32)
-    print("1. Nova máquina.\n2. Mostrar todos.\n3. Mostrar uma máquina.\n4. Alterar especificações de uma máquina.\n5. Excluir.\n6. Gerar PDF.\n7. Sair")
+    print("="*32 + " Gerenciador de dispositivos locais - Prominas " + "="*32)
+    print("1. Nova máquina.\n2. Mostrar todos.\n3. Mostrar uma máquina.\n4. Alterar especificações de uma máquina.\n5. Excluir.\n\6. Excluir todos.\n7. Gerar PDF.\n8. Sair")
     print("="*80)
     opcao = input("Entre com o dígito da função desejada: ")
     return opcao
@@ -24,6 +35,7 @@ def validaIdentificador(planilhaDeDispositivos):
             return y
 
 def incluirMaquina(planilhaDeDispositivos):
+    print("="*32 + " Incluindo Dispositivo " + "="*32)
     nova_linha = [None] * 5
     valida = validaIdentificador(planilhaDeDispositivos)
     nova_linha[0] = valida
@@ -51,6 +63,7 @@ def incluirMaquina(planilhaDeDispositivos):
     planilhaDeDispositivos.parent.save('Dispositivos prmns.xlsx')
 
 def mostrarTodos(planilhaDeDispositivos):
+    print("="*32 + " Exibindo dispositivos " + "="*32)
     for linha in planilhaDeDispositivos.iter_rows(min_row = 2):
         print(f"{linha[0].value} | {linha[1].value} | {linha[2].value} | {linha[3].value} | [{linha[4].value}]")
 
@@ -67,12 +80,12 @@ def imprimirMaquinaEspecifica(planilhaDeDispositivos):
     if indDisp:
         print(f"{indDisp[0].value} | {indDisp[1].value} | {indDisp[2].value} | {indDisp[3].value} | [{indDisp[4].value}]")
     else:
-        print("O dispositivo indicado não pode ser encontrado. Verifique se o mesmo consta na base de dados atual.")
+        print("O dispositivo indicado não podê ser encontrado. Verifique se o mesmo consta na base de dados atual.")
 
 def alterarEspecificacao(planilhaDeDispositivos):
     indDisp = buscarDispositivo(planilhaDeDispositivos)
     if indDisp:
-        opcao = input("="*32 + "Alterando especificações do dispositivo" + "="*32 + "\n1. Status.\n2. Sistema Operacional.\n3. Chave de ativação.\n4. Partições\nEntre com o dígito da opção que deseja alterar no dispostivo: ")
+        opcao = input("="*32 + " Alterando especificações do dispositivo " + "="*32 + "\n1. Status.\n2. Sistema Operacional.\n3. Chave de ativação.\n4. Partições\nEntre com o dígito da opção que deseja alterar no dispostivo: ")
         if opcao == "1":
             print("Alterando Status do dispositivo\n")
             exiSta = False
@@ -101,20 +114,27 @@ def alterarEspecificacao(planilhaDeDispositivos):
         else:
             print("Opção inválida. Tente novamente.")
     else:
-        print("O dispositivo indicado não pode ser encontrado. Verifique se o mesmo consta na base de dados atual.")
+        print("O dispositivo indicado não podê ser encontrado. Verifique se o mesmo consta na base de dados atual.")
 
 def excluirDispositivo(planilhaDeDispositivos):
-    print("="*32 + "Excluindo dispositivo" + "="*32)
+    print("="*32 + " Excluindo dispositivo " + "="*32)
     indDisp = buscarDispositivo(planilhaDeDispositivos)
     if (indDisp) and (indDisp[1].value != 'Ativo'):
         planilhaDeDispositivos.delete_rows(indDisp[0].row)
         print("Dispositivo removido com sucesso!")
     else:
-        print("O dispositivo indicado não pode ser encontrado. Verifique se o mesmo consta na base de dados atual.")
+        print("O dispositivo indicado não podê ser encontrado ou não pode ser excluído devido seu status. Verifique se o mesmo consta na base de dados atual.")
+
+def excluirTodos(planilhaDeDispositivos):
+    print("="*32 + " Excluindo Todos os dispositivos Inativos " + "="*32)
+    for linha in planilhaDeDispositivos.iter_rows(min_row = 2):
+        if linha[1].value != "Ativo":
+            planilhaDeDispositivos.delete_rows(linha[0].row)
+    print("Dispositivos removidos com sucesso!")
 
 def gerarPDF(planilhaDeDispositivos):
     print("="*32 + "Gerando PDF" + "="*32)
-    pdf_file = "Teste de Etiquetas prmns.pdf"
+    pdf_file = "Etiquetas prmns.pdf"
 
     # Criar um documento HTML
     html_content = f"""
@@ -188,27 +208,34 @@ def desligandoSistema():
         print(f"Desligando{'.'*x}", end='\r')
         sleep(0.5)
 
+def carregarArquivo():
+    print("="*32 + " Gerenciador de dispositivos locais - Prominas " + "="*32)
+    nomeArquivo = input("Entre com o nome da base de dados: ")
+    return nomeArquivo
+
 def main():
-    workbook = openpyxl.load_workbook('Dispositivos prmns.xlsx')
-    paginas = workbook['Planilha1']
+    arquivo = carregarArquivo()
+    verifArq = exitePlanilha(arquivo)
     opcao = menu()
-    while opcao != "7":
+    while opcao != "8":
         if opcao == "1":
-            incluirMaquina(paginas)
+            incluirMaquina(verifArq)
         elif opcao == "2":
-            mostrarTodos(paginas)
+            mostrarTodos(verifArq)
         elif opcao == "3":
-            imprimirMaquinaEspecifica(paginas)
+            imprimirMaquinaEspecifica(verifArq)
         elif opcao == "4":
-            alterarEspecificacao(paginas)
+            alterarEspecificacao(verifArq)
         elif opcao == "5":
-            excluirDispositivo(paginas)
+            excluirDispositivo(verifArq)
         elif opcao == "6":
-            gerarPDF(paginas)
+            excluirTodos(verifArq)
+        elif opcao == "7":
+            gerarPDF(verifArq)
         else:
             print("Opção inválida. Tente novamente com uma das opções disponíveis no menu.")
         opcao = menu()
-        paginas.parent.save('Dispositivos prmns.xlsx')
+        verifArq.parent.save('Dispositivos prmns.xlsx')
     desligandoSistema()
 
 if __name__ == "__main__":
