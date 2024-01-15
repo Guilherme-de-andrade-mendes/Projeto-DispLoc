@@ -10,16 +10,17 @@ def exitePlanilha(nomeArquivo):
         planilha.title = 'Planilha1'
         planilha.append(['Nome', 'Status', 'Sistema Operacional', 'Chave de Ativação', 'Partições'])
         workbook.save(nomeArquivo)
-        print(f'Arquivo {nomeArquivo} criado com sucesso.')
+        print(f'Arquivo {nomeArquivo} criado com sucesso!')
         return planilha
     else:
         workbook = openpyxl.load_workbook(nomeArquivo)
         planilha = ['Planilha1']
+        print("Base de dados importada com sucesso!")
         return planilha
-
+        
 def menu():
     print("="*32 + " Gerenciador de dispositivos locais - Prominas " + "="*32)
-    print("1. Nova máquina.\n2. Mostrar todos.\n3. Mostrar uma máquina.\n4. Alterar especificações de uma máquina.\n5. Excluir.\n\6. Excluir todos.\n7. Gerar PDF.\n8. Sair")
+    print("1. Nova máquina.\n2. Mostrar todos.\n3. Mostrar uma máquina.\n4. Alterar especificações de uma máquina.\n5. Excluir.\n6. Excluir todos.\n7. Gerar PDF.\n8. Sair")
     print("="*80)
     opcao = input("Entre com o dígito da função desejada: ")
     return opcao
@@ -64,8 +65,11 @@ def incluirMaquina(planilhaDeDispositivos):
 
 def mostrarTodos(planilhaDeDispositivos):
     print("="*32 + " Exibindo dispositivos " + "="*32)
-    for linha in planilhaDeDispositivos.iter_rows(min_row = 2):
-        print(f"{linha[0].value} | {linha[1].value} | {linha[2].value} | {linha[3].value} | [{linha[4].value}]")
+    if planilhaDeDispositivos.max_row > 1:
+        for linha in planilhaDeDispositivos.iter_rows(min_row = 2):
+            print(f"{linha[0].value} | {linha[1].value} | {linha[2].value} | {linha[3].value} | [{linha[4].value}]")
+    else:
+        print("Não existem dispositivos cadastrados na base de dados atual. Faça a inclusão de novos dispositivos para utilizar a função mostra todos.")
 
 def buscarDispositivo(planilhaDeDispositivos):
     x = input("Nome da máquina: ").upper()
@@ -123,7 +127,7 @@ def excluirDispositivo(planilhaDeDispositivos):
         planilhaDeDispositivos.delete_rows(indDisp[0].row)
         print("Dispositivo removido com sucesso!")
     else:
-        print("O dispositivo indicado não podê ser encontrado ou não pode ser excluído devido seu status. Verifique se o mesmo consta na base de dados atual.")
+        print("O dispositivo indicado não podê ser encontrado ou não pode ser excluído devido seu status. Verifique se o mesmo consta na base de dados atual e qual e se seu status está inativado.")
 
 def excluirTodos(planilhaDeDispositivos):
     print("="*32 + " Excluindo Todos os dispositivos Inativos " + "="*32)
@@ -210,7 +214,8 @@ def desligandoSistema():
 
 def carregarArquivo():
     print("="*32 + " Gerenciador de dispositivos locais - Prominas " + "="*32)
-    nomeArquivo = input("Entre com o nome da base de dados: ")
+    nomeArquivo = input("Entre com o nome da base de dados: ").lower().capitalize()
+    nomeArquivo += '.xlsx'
     return nomeArquivo
 
 def main():
