@@ -1,5 +1,12 @@
 import os
 import openpyxl
+import reportlab
+import reportlab.graphics.barcode.code128
+import reportlab.graphics.barcode.code93
+import reportlab.graphics.barcode.code39
+import reportlab.graphics.barcode.usps
+import reportlab.graphics.barcode.usps4s
+import reportlab.graphics.barcode.ecc200datamatrix
 from xhtml2pdf import pisa
 from time import sleep
 
